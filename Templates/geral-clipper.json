@@ -1,0 +1,38 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Geral",
+	"behavior": "create",
+	"noteContentFormat": "# {{title}}\n\n{{selectorHtml:body\n|remove_html:(\"style,script,noscript,header,footer,nav,aside,form,button,svg,canvas\")\n|remove_tags:\"a\"\n|markdown\n|trim\n}}",
+	"properties": [
+		{
+			"name": "categoria",
+			"value": "[[Clippings]]",
+			"type": "multitext"
+		},
+		{
+			"name": "fonte",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "criado_em",
+			"value": "{{date|date:\\\"YYYY-MM-DD\\\"}}",
+			"type": "date"
+		},
+		{
+			"name": "titulo",
+			"value": "{{title}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "clippings, web,",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"/^https?:\\/\\/.*/"
+	],
+	"noteNameFormat": "{{title|safe_name}}",
+	"path": "4 - Clippings"
+}

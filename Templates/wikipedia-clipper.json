@@ -1,0 +1,48 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Wikipedia",
+	"behavior": "create",
+	"noteContentFormat": "# {{title|replace:\" – Wikipédia, a enciclopédia livre\":\"\"|replace:\" - Wikipedia\":\"\"}}\n\n{{selectorHtml:#mw-content-text\n|remove_html:(\"style,script,noscript,sup,.reference,.mw-editsection,.navbox,.vertical-navbox,.metadata,.ambox,.ombox,.tmbox,.sidebar,.side-box,.toc,.reflist,.catlinks,.printfooter,.mw-authority-control,.infobox,figure,.references,.mw-cite-backlink\")\n|remove_tags:\"a\"\n|markdown\n|replace:(\"[editar]\":\"\",\"[editar código]\":\"\",\"[carece de fontes?]\":\"\")\n}}",
+	"properties": [
+		{
+			"name": "categoria",
+			"value": "[[Clippings]]",
+			"type": "multitext"
+		},
+		{
+			"name": "fonte",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "autor",
+			"value": "[[Wikipédia]]",
+			"type": "text"
+		},
+		{
+			"name": "criado em",
+			"value": "{{date|date:\\\"YYYY-MM-DD\\\"}}",
+			"type": "date"
+		},
+		{
+			"name": "titulo",
+			"value": "{{title|replace:\\\" – Wikipédia, a enciclopédia livre\\\":\\\"\\\"|replace:\\\" - Wikipedia\\\":\\\"\\\"}}",
+			"type": "text"
+		},
+		{
+			"name": "categorias_wikipedia",
+			"value": "{{selector:#mw-normal-catlinks li|join:\\\", \\\"}}",
+			"type": "multitext"
+		},
+		{
+			"name": "tags",
+			"value": "clippings, wikipedia, {{selector:#mw-normal-catlinks li|replace:\\\" \\\":\\\"_\\\"|lower|join:\\\", \\\"}}",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"/^https:\\/\\/[a-z-]+\\.wikipedia\\.org\\/wiki\\/.*$/"
+	],
+	"noteNameFormat": "{{title|replace:\" – Wikipédia, a enciclopédia livre\":\"\"|replace:\" - Wikipedia\":\"\"|safe_name}}",
+	"path": "4 - Clippings"
+}
