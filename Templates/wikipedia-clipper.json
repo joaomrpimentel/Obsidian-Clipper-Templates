@@ -2,7 +2,7 @@
 	"schemaVersion": "0.1.0",
 	"name": "Wikipedia",
 	"behavior": "create",
-	"noteContentFormat": "# {{title|replace:\" – Wikipédia, a enciclopédia livre\":\"\"|replace:\" - Wikipedia\":\"\"}}\n\n{{selectorHtml:#mw-content-text\n|remove_html:(\"style,script,noscript,sup,.reference,.mw-editsection,.navbox,.vertical-navbox,.metadata,.ambox,.ombox,.tmbox,.sidebar,.side-box,.toc,.reflist,.catlinks,.printfooter,.mw-authority-control,.infobox,figure,.references,.mw-cite-backlink\")\n|remove_tags:\"a\"\n|markdown\n|replace:(\"[editar]\":\"\",\"[editar código]\":\"\",\"[carece de fontes?]\":\"\")\n}}",
+	"noteContentFormat": "# {{title|replace:\" – Wikipédia, a enciclopédia livre\":\"\"|replace:\" - Wikipedia\":\"\"}}\n\n{{selectorHtml:#mw-content-text\n|remove_html:(\"style,script,noscript,sup,.reference,.mw-editsection,.navbox,.vertical-navbox,.metadata,.ambox,.ombox,.tmbox,.sidebar,.side-box,.toc,.reflist,.catlinks,.printfooter,.mw-authority-control,.infobox,figure,.references,.mw-cite-backlink,table,.wikitable,.thumb,.hatnote,.noprint,.mw-collapsible,.mw-references-wrap,.portal-bar,.coordinates\")\n|remove_tags:\"a\"\n|markdown\n|replace:(\"[editar]\":\"\",\"[editar código]\":\"\",\"[carece de fontes?]\":\"\",\"[citação necessária]\":\"\",\"[fonte?]\":\"\")\n|trim\n}}",
 	"properties": [
 		{
 			"name": "categoria",
@@ -20,7 +20,7 @@
 			"type": "text"
 		},
 		{
-			"name": "criado em",
+			"name": "criado_em",
 			"value": "{{date|date:\\\"YYYY-MM-DD\\\"}}",
 			"type": "date"
 		},
@@ -28,11 +28,6 @@
 			"name": "titulo",
 			"value": "{{title|replace:\\\" – Wikipédia, a enciclopédia livre\\\":\\\"\\\"|replace:\\\" - Wikipedia\\\":\\\"\\\"}}",
 			"type": "text"
-		},
-		{
-			"name": "categorias_wikipedia",
-			"value": "{{selector:#mw-normal-catlinks li|join:\\\", \\\"}}",
-			"type": "multitext"
 		},
 		{
 			"name": "tags",

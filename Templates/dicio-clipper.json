@@ -1,0 +1,38 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Dicio",
+	"behavior": "create",
+	"noteContentFormat": "# {{selector:h1}}\n\n## Significado\n\n{{selectorHtml:p.significado | markdown | trim}}\n\n{{selectorHtml:h3.tit-significado--singular + p.conjugacao | markdown | trim}}\n\n## Definição\n\n{{selectorHtml:h2.tit-section + p.adicional | markdown | trim | remove_tags:\"a\"}}\n\n",
+	"properties": [
+		{
+			"name": "categoria",
+			"value": "[[Dicionário]]",
+			"type": "multitext"
+		},
+		{
+			"name": "fonte",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "criado_em",
+			"value": "{{date|date:\\\"YYYY-MM-DD\\\"}}",
+			"type": "date"
+		},
+		{
+			"name": "palavra",
+			"value": "{{selector:h1}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "clippings, dicionário, português, palavras",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"/^https?:\\/\\/www\\.dicio\\.com\\.br\\/.*/"
+	],
+	"noteNameFormat": "{{selector:h1|safe_name}}",
+	"path": "4 - Clippings"
+}
