@@ -1,0 +1,38 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Vivaldi Reader",
+	"behavior": "create",
+	"noteContentFormat": "# {{selector:h1}}\n\n{{selectorHtml:article.entry-content\n|remove_html:(\"style,script,noscript,sup,a[href^='#_ftn']\")\n|remove_tags:\"a\"\n|markdown\n|trim\n}}",
+	"properties": [
+		{
+			"name": "categoria",
+			"value": "[[Clippings]]",
+			"type": "multitext"
+		},
+		{
+			"name": "fonte",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "criado_em",
+			"value": "{{date|date:\\\"YYYY-MM-DD\\\"}}",
+			"type": "date"
+		},
+		{
+			"name": "titulo",
+			"value": "{{selector:h1}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "clippings",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"/^https?:\\/\\/.*/"
+	],
+	"noteNameFormat": "{{selector:h1|safe_name}}",
+	"path": "4 - Clippings"
+}
