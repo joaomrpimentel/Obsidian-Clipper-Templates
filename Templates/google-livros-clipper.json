@@ -1,0 +1,54 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "Google Livros",
+	"behavior": "create",
+	"noteContentFormat": "# {{title|replace:\" - Google Livros\":\"\"|replace:\" - .*? - Google Livros\":\"\"}}\n\n![Capa do livro](https://books.google.com/books/content?id={{url|split:\"id=\"|last|split:\"&\"|first}}&printsec=frontcover&img=1&zoom=1)\n\n**Autor:** [[{{selector:.bookinfo_sectionwrap > div:first-child a}}]]\n\n**Editora:** {{selector:.bookinfo_sectionwrap > div:nth-child(2) span:first-child}}\n\n**Data de publicação:** {{selector:.bookinfo_sectionwrap > div:nth-child(2) span:nth-child(2)}}\n\n**Número de páginas:** {{selector:.bookinfo_sectionwrap > div:nth-child(2) span:last-child}}\n\n## Sinopse\n\n{{selectorHtml:#synopsistext|markdown|trim}}\n\n## Informações bibliográficas\n\n{{selectorHtml:#metadata_content_table|remove_html:(\"a\")|markdown|trim}}",
+	"properties": [
+		{
+			"name": "categoria",
+			"value": "[[Clippings]]",
+			"type": "multitext"
+		},
+		{
+			"name": "fonte",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "autor_livro",
+			"value": "[[{{selector:.bookinfo_sectionwrap > div:first-child a}}]]",
+			"type": "text"
+		},
+		{
+			"name": "editora",
+			"value": "{{selector:.bookinfo_sectionwrap > div:nth-child(2) span:first-child}}",
+			"type": "text"
+		},
+		{
+			"name": "data_publicacao",
+			"value": "{{selector:.bookinfo_sectionwrap > div:nth-child(2) span:nth-child(2)}}",
+			"type": "text"
+		},
+		{
+			"name": "paginas",
+			"value": "{{selector:.bookinfo_sectionwrap > div:nth-child(2) span:last-child}}",
+			"type": "text"
+		},
+		{
+			"name": "isbn",
+			"value": "{{selector:#metadata_content_table tr.metadata_row:nth-child(5) .metadata_value}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "clippings, google-livros, livro",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"/^https:\\/\\/books\\.google\\.(com|com\\.br)\\/books\\/about\\/.*$/",
+		"/^https:\\/\\/books\\.google\\.(com|com\\.br)\\/books\\?id=.*$/"
+	],
+	"noteNameFormat": "{{title|replace:\" - Google Livros\":\"\"|replace:\" - .*? - Google Livros\":\"\"|safe_name}}",
+	"path": "4 - Clippings"
+}
