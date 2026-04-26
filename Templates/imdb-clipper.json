@@ -1,0 +1,58 @@
+{
+	"schemaVersion": "0.1.0",
+	"name": "IMDb",
+	"behavior": "create",
+	"noteContentFormat": "# {{schema:@Movie:name}}\n\n![Capa do filme]({{schema:@Movie:image}})\n\n**Ano:** {{schema:@Movie:datePublished|date:\"YYYY\"}}\n\n**Duração:** {{schema:@Movie:duration|duration:\"H:mm\"}}\n\n**Nota IMDb:** {{schema:@Movie:aggregateRating.ratingValue}} / 10 ({{schema:@Movie:aggregateRating.ratingCount|replace:\",\":\".\"}} avaliações)\n\n**Gêneros:** {{schema:@Movie:genre|join:\", \"}}\n\n**Direção:** {{schema:@Movie:director[*].name|join:\", \"}}\n\n**Elenco principal:** {{schema:@Movie:actor[*].name|join:\", \"}}\n\n**Classificação:** {{schema:@Movie:contentRating}}\n\n## Sinopse\n\n{{schema:@Movie:description}}\n\n",
+	"properties": [
+		{
+			"name": "categoria",
+			"value": "[[Clippings]]",
+			"type": "multitext"
+		},
+		{
+			"name": "fonte",
+			"value": "{{url}}",
+			"type": "text"
+		},
+		{
+			"name": "titulo_filme",
+			"value": "{{schema:@Movie:name}}",
+			"type": "text"
+		},
+		{
+			"name": "ano",
+			"value": "{{schema:@Movie:datePublished|date:\\\"YYYY\\\"}}",
+			"type": "text"
+		},
+		{
+			"name": "nota_imdb",
+			"value": "{{schema:@Movie:aggregateRating.ratingValue}}",
+			"type": "text"
+		},
+		{
+			"name": "generos",
+			"value": "{{schema:@Movie:genre|join:\\\", \\\"}}",
+			"type": "text"
+		},
+		{
+			"name": "capa",
+			"value": "{{schema:@Movie:image}}",
+			"type": "text"
+		},
+		{
+			"name": "duracao",
+			"value": "{{schema:@Movie:duration|duration:\\\"H:mm\\\"}}",
+			"type": "text"
+		},
+		{
+			"name": "tags",
+			"value": "clippings, imdb, filme",
+			"type": "multitext"
+		}
+	],
+	"triggers": [
+		"/^https:\\/\\/(www\\.)?imdb\\.(com|pt)\\/(?:pt\\/)?title\\/tt.*$/"
+	],
+	"noteNameFormat": "{{schema:@Movie:name|safe_name}}",
+	"path": "4 - Clippings"
+}
